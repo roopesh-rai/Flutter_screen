@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   bool _flag = true;
+
   static List<Widget> _widgetData = <Widget>[
     Text(
       'FAVOURITES',
@@ -166,33 +160,63 @@ class _HomeState extends State<Home> {
         SizedBox(
           height: 10,
         ),
-        Row(children: [
-          Stack(
-            fit: StackFit.passthrough,
-            children: <Widget>[
-              Container(
-                height: 165,
-                width: 165,
-                child: Center(
-                  child: Column(
-                    children: [
-                      Padding(padding: EdgeInsets.only(top: 40)),
-                      Image.asset(
-                        "assets/audio_track.png",
-                        height: 50,
-                        width: 50,
+        Container(
+          padding: EdgeInsets.all(15.0),
+          child: GridView.count(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 10.0,
+            shrinkWrap: true,
+            children: List.generate(
+              2,
+              (index) {
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/rsd_25.jpg"),
+                        fit: BoxFit.cover,
                       ),
-                      Text("It's a little quiet here."),
-                    ],
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20.0),
+                      ),
+                    ),
+                    // child: Text("Let's Launch 30 Minutes"),
                   ),
-                ),
-                // color: Colors.transparent,
-                decoration:
-                    BoxDecoration(border: Border.all(color: Colors.black12)),
-              )
-            ],
+                );
+              },
+            ),
           ),
-        ]),
+        ),
+        Container(
+          padding: EdgeInsets.all(15.0),
+          child: GridView.count(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 10.0,
+            shrinkWrap: true,
+            children: List.generate(
+              2,
+                  (index) {
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/rsd_b.png"),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        )
       ]),
     ),
     Text('Profile Page',
@@ -222,22 +246,21 @@ class _HomeState extends State<Home> {
               // color: Color.fromARGB(255, 140, 0, 149), // set your color
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/rsd_logo.png",
-                        height: 100,
-                        width: 70,
-                      ),(
-                      IconButton(
-                          padding: EdgeInsets.only(left: 220),
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.account_circle_outlined,
-                            color: Colors.white,
-                            size: 45,
-                          ))
-                      )]),
+                  Row(children: [
+                    Image.asset(
+                      "assets/rsd_logo.png",
+                      height: 100,
+                      width: 70,
+                    ),
+                    (IconButton(
+                        padding: EdgeInsets.only(left: 220),
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.account_circle_outlined,
+                          color: Colors.white,
+                          size: 45,
+                        )))
+                  ]),
                   Align(
                       alignment: Alignment.centerLeft,
                       child: Column(
@@ -269,10 +292,19 @@ class _HomeState extends State<Home> {
           elevation: 5),
       body: Container(
         padding: EdgeInsets.only(top: 15, left: 15, right: 15),
-        child: Column(
-          children: [_widgetOptions.elementAt(_selectedIndex)],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [_widgetOptions.elementAt(_selectedIndex)],
+          ),
         ),
       ),
     );
   }
+}
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
 }
