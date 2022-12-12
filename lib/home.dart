@@ -2,7 +2,30 @@ import 'package:flutter/material.dart';
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+  bool click = true;
   bool _flag = true;
+
+  Widget button(
+      {required String name,
+      required Color color,
+      required Color textcolor,
+      required Color another_color,
+      required Color borderside}) {
+    return Container(
+        height: 55,
+        width: 300,
+        child: ElevatedButton(
+            child: Text(
+              name,
+              style: TextStyle(color: textcolor),
+            ),
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+                side: BorderSide(color: borderside),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18)),
+                backgroundColor: (click == false) ? color : another_color)));
+  }
 
   static List<Widget> _widgetData = <Widget>[
     Text(
@@ -31,7 +54,7 @@ class _HomeState extends State<Home> {
           fontSize: 35, fontWeight: FontWeight.bold, color: Colors.white),
     )
   ];
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     Column(children: [
       Align(
         alignment: Alignment.centerLeft,
@@ -109,10 +132,16 @@ class _HomeState extends State<Home> {
       child: Column(children: [
         Row(
           children: [
+            // button(
+            //     name: 'Ready Set Dance',
+            //     color: Colors.white,
+            //     textcolor: Colors.green,
+            //     another_color: Colors.yellow,
+            //  borderside: Colors.yellow),
             ElevatedButton(
                 onPressed: () {},
                 child: Text(
-                  "Ready Set Dance",
+                  "Ready Set Ballet",
                   style: TextStyle(fontSize: 10),
                 ),
                 style: ButtonStyle(
@@ -238,8 +267,336 @@ class _HomeState extends State<Home> {
         ),
       ]),
     ),
-    Text('Profile Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Container(
+      child: Column(children: [
+        Row(
+          children: [
+            // button(
+            //     name: 'Ready Set Dance',
+            //     color: Colors.white,
+            //     textcolor: Colors.green,
+            //     another_color: Colors.yellow,
+            //  borderside: Colors.yellow),
+            ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  "Ready Set Ballet",
+                  style: TextStyle(fontSize: 10),
+                ),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.yellow),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(color: Colors.yellow),
+                    )))),
+            SizedBox(
+              width: 5,
+            ),
+            ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  "Ready Set Ballet",
+                  style: TextStyle(fontSize: 10),
+                ),
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.pinkAccent),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(color: Colors.pinkAccent),
+                    )))),
+            SizedBox(
+              width: 5,
+            ),
+            ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  "Ready Set Tap",
+                  style: TextStyle(fontSize: 10, color: Colors.lightBlueAccent),
+                ),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(color: Colors.lightBlueAccent),
+                    )))),
+          ],
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        SingleChildScrollView(
+          child: Container(
+            height: 500,
+            width: 500,
+            child: ListView(
+              padding: EdgeInsets.all(8),
+              children: <Widget>[
+                Container(
+                  height: 75,
+                  color: Colors.white70,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Text("PARACHUTE PLAY",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22,
+                                      )),
+                                  Padding(padding: EdgeInsets.only(right: 70)),
+                                  // IconButton(onPressed: (){(click == false) ? Icon(Icons.star_border) : Icon(Icons.star)}, icon: Icon(Icons.star_border))
+                                  IconButton(
+                                      onPressed: () {
+                                        Icon(Icons.star);
+
+                                      },
+                                      icon: Icon(
+                                        Icons.star_border,
+                                        color: Colors.yellow,
+                                      ))
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Icon(
+                                    Icons.watch_later_rounded,
+                                    size: 10,
+                                    color: Colors.grey,
+                                  ),
+                                  Text(
+                                    "3 Min 20 Sec",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.grey),
+                                  )
+                                ],
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+                Divider(height: 1),
+                Container(
+                  height: 75,
+                  color: Colors.white70,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Text("LET'S GO CAMPING",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22,
+                                      )),
+                                  Padding(padding: EdgeInsets.only(right: 58)),
+                                  // IconButton(onPressed: (){(click == false) ? Icon(Icons.star_border) : Icon(Icons.star)}, icon: Icon(Icons.star_border))
+                                  IconButton(
+                                      onPressed: () {
+                                        Icon(Icons.star);
+                                      },
+                                      icon: Icon(
+                                        Icons.star_border,
+                                        color: Colors.yellow,
+                                      ))
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Icon(
+                                    Icons.watch_later_rounded,
+                                    size: 10,
+                                    color: Colors.grey,
+                                  ),
+                                  Text(
+                                    "3 Min 20 Sec",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.grey),
+                                  )
+                                ],
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+                Divider(height: 1),
+                Container(
+                  height: 75,
+                  color: Colors.white70,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Text("WELCOME SONG",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22,
+                                      )),
+                                  Padding(padding: EdgeInsets.only(right: 85)),
+                                  // IconButton(onPressed: (){(click == false) ? Icon(Icons.star_border) : Icon(Icons.star)}, icon: Icon(Icons.star_border))
+                                  IconButton(
+                                      onPressed: () {
+                                        Icon(Icons.star_border);
+                                      },
+                                      icon: Icon(
+                                        Icons.star_border,
+                                        color: Colors.yellow,
+                                      ))
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Icon(
+                                    Icons.watch_later_rounded,
+                                    size: 10,
+                                    color: Colors.grey,
+                                  ),
+                                  Text(
+                                    "3 Min 20 Sec",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.grey),
+                                  )
+                                ],
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+                Divider(height: 1),
+                Container(
+                  height: 75,
+                  color: Colors.white70,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Text("BLAST OFF",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22,
+                                      )),
+                                  Padding(padding: EdgeInsets.only(right: 139)),
+                                  // IconButton(onPressed: (){(click == false) ? Icon(Icons.star_border) : Icon(Icons.star)}, icon: Icon(Icons.star_border))
+                                  IconButton(
+                                      onPressed: () {
+                                        Icon(Icons.star);
+                                      },
+                                      icon: Icon(
+                                        Icons.star_border,
+                                        color: Colors.yellow,
+                                      ))
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Icon(
+                                    Icons.watch_later_rounded,
+                                    size: 10,
+                                    color: Colors.grey,
+                                  ),
+                                  Text(
+                                    "3 Min 20 Sec",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.grey),
+                                  )
+                                ],
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+                Divider(height: 1),
+                Container(
+                  height: 75,
+                  color: Colors.white70,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Text("POM POM PARADE",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22,
+                                      )),
+                                  Padding(padding: EdgeInsets.only(right: 60)),
+                                  // IconButton(onPressed: (){(click == false) ? Icon(Icons.star_border) : Icon(Icons.star)}, icon: Icon(Icons.star_border))
+                                  IconButton(
+                                      onPressed: () {
+                                        Icon(Icons.star);
+                                      },
+                                      icon: Icon(
+                                        Icons.star_border,
+                                        color: Colors.yellow,
+                                      ))
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Padding(padding: EdgeInsets.only(left: 10)),
+                                  Icon(
+                                    Icons.watch_later_rounded,
+                                    size: 10,
+                                    color: Colors.grey,
+                                  ),
+                                  Text(
+                                    "3 Min 20 Sec",
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.grey),
+                                  )
+                                ],
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
+                ),
+                Divider(height: 1),
+              ],
+            ),
+          ),
+        ),
+      ]),
+    ),
     SingleChildScrollView(
         child: Container(
       width: 500,
@@ -276,7 +633,9 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
@@ -309,7 +668,7 @@ class _HomeState extends State<Home> {
         ],
       ),
     )),
-    Text('Profile Page',
+    Text('',
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
